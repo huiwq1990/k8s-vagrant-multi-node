@@ -1,0 +1,20 @@
+Vagrant.configure(2) do |config|
+    # 指定使用哪个 box
+    config.vm.box = "centos/7"
+
+    # 指定使用哪个虚拟机
+    config.vm.provider "virtualbox" do |vb|
+        # 给virtualbox虚拟机指定资源配置，其他配置项可以看https://www.vagrantup.com/docs/virtualbox/configuration.html
+        # 记住，不同的虚拟机的配置是不太一样的，具体看官方文档
+        # 这里指定了1024M内存
+        vb.memory = "1024"
+    end
+    
+    # 单独创建一个虚拟机
+    config.vm.define "out" do |out|
+        out.vm.hostname = "out"
+        out.vm.network "private_network", ip: "192.168.26.88"
+        # 使用 shell provision 执行一段脚本，其他 provision 可以看官方文档 
+        # https://www.vagrantup.com/docs/provisioning/
+    end
+end

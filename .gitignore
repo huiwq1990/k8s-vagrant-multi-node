@@ -1,3 +1,4 @@
 /.vagrant/
 /bin/*
 /data/*
+/test/.vagrant/

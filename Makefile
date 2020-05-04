@@ -11,7 +11,7 @@ KUBECTL ?= kubectl
 # Vagrant Provider
 VAGRANT_DEFAULT_PROVIDER ?= virtualbox
 # Vagrantfile set to use.
-BOX_OS ?= fedora
+BOX_OS ?= centos
 # Vagrant Box image to use.
 BOX_IMAGE ?= $(shell grep "^\$$box_image.*=.*'.*'\.freeze" "$(MFILECWD)/vagrantfiles/$(BOX_OS)/common" | cut -d\' -f4)
 # Disk setup
@@ -22,7 +22,7 @@ MASTER_CPUS ?=
 MASTER_MEMORY_SIZE_GB ?=
 NODE_CPUS ?=
 NODE_MEMORY_SIZE_GB ?=
-NODE_COUNT ?=
+NODE_COUNT ?= 1
 # Libvirt
 LIBVIRT_STORAGE_POOL ?=
 # Network
@@ -43,9 +43,9 @@ KUBETOKEN ?=
 KUBEADM_INIT_FLAGS ?=
 # `kubeadm join` flags for nodes
 KUBEADM_JOIN_FLAGS ?=
-KUBERNETES_VERSION ?=
+KUBERNETES_VERSION ?= 1.17.5
 KUBERNETES_PKG_VERSION_SUFFIX ?=
-KUBE_NETWORK ?=
+KUBE_NETWORK ?= calico
 KUBECTL_AUTO_CONF ?= true
 USER_SSHPUBKEY ?=
 HTTP_PROXY ?=
