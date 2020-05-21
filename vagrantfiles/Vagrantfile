@@ -101,9 +101,9 @@ Vagrant.configure('2') do |config|
         subconfig.vm.provision :shell, inline: $baseInstallScript
         subconfig.vm.provision :shell, inline: $verifyNodeScript
         # Run diskandreboot plugin to add VirtualBox disks to VMs
-        if VAGRANT_DEFAULT_PROVIDER == 'virtualbox'
-            subconfig.vm.provision :diskandreboot
-        end
+        #if VAGRANT_DEFAULT_PROVIDER == 'virtualbox'
+        #    subconfig.vm.provision :diskandreboot
+        #end
         # Node Provision
         if $hostname.include? "node"
             subconfig.vm.provision :shell, inline: $kubeMinionScript
